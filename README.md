@@ -48,6 +48,8 @@ Contains only an `EndIf()` method, which can be called to return control to the 
 >
 > `.EndIf()`
 
+A simple implementation example can be found [here](./examples) to see how the class extends `IFluentIf` and [here](./tests/examples) to see tests showing how it is used.
+
 ## Tasks
 
 The code is set up with tasks you can run from VS Code. The tasks have been made for use with Visual Studio Code just because that's the editor I used to develop. The tasks are simply meant to help simplify the development process; if you're just using the extensions as a user, you won't really care about them.
