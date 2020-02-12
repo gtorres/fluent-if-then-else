@@ -1,17 +1,27 @@
-name: .NET Core
+name: integration-build
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
+      - master-test
 
 jobs:
   build:
-
+    name: build
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 2.2.108
-    - name: Build with dotnet
-      run: dotnet build --configuration Release
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 3.0.101
+
+      - name: build with dotnet
+        run: dotnet build --configuration Release
+
+      - name: test
+        run: dotnet test
