@@ -1,0 +1,26 @@
+name: build-and-test-master
+
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  build:
+    name: build-and-test
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v2
+
+      - name: setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: 3.0.101
+
+      - name: build with dotnet
+        run: dotnet build --configuration Release
+
+      - name: run unit tests
+        run: dotnet test .//tests//unit//Test.Unit.csproj --no-build -c Release
