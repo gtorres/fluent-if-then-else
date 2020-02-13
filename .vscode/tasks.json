@@ -29,6 +29,25 @@
         "reveal": "never"
       },
       "problemMatcher": []
+    },
+    {
+      "label": "clear-coverage",
+      "command": "rmdir *\\TestResults -Recurse",
+      "type": "shell",
+      "group": "test",
+      "presentation": {
+        "reveal": "never"
+      }
+    },
+    {
+      "label": "test-unit",
+      "command": "dotnet test .\\tests\\unit --collect:'XPlat Code Coverage' --settings '.\\tests\\runsettings.xml'",
+      "type": "shell",
+      "group": "test",
+      "presentation": {
+        "reveal": "always"
+      },
+      "dependsOn": "clear-coverage"
     }
   ]
 }
