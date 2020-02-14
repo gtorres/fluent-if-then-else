@@ -24,3 +24,6 @@ jobs:
 
       - name: run unit tests
         run: dotnet test .//tests//unit//Test.Unit.csproj --no-build -c Release
+
+      - name: run integration tests
+        run: dotnet test .//tests//examples//Test.Examples.csproj --no-build -c Release
