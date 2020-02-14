@@ -48,6 +48,16 @@
         "reveal": "always"
       },
       "dependsOn": "clear-coverage"
+    },
+    {
+      "label": "test-integration",
+      "command": "dotnet test .\\tests\\examples --collect:'XPlat Code Coverage' --settings '.\\tests\\runsettings.xml'",
+      "type": "shell",
+      "group": "test",
+      "presentation": {
+        "reveal": "always"
+      },
+      "dependsOn": "clear-coverage"
     }
   ]
 }
