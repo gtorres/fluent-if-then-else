@@ -55,7 +55,7 @@
       "problemMatcher": "$msCompile"
     },
     {
-      "label": "get-coverage",
+      "label": "unit-test",
       "command": "dotnet test './tests/unit' -s './tests/runsettings.xml' -r './tests/_coverage_results/wrapper_create'",
       "type": "shell",
       "group": "test",
@@ -69,6 +69,37 @@
       },
       "problemMatcher": "$msCompile",
       "dependsOn": "clear-coverage"
+    },
+    {
+      "label": "integration-test",
+      "command": "dotnet test './tests/examples' -s './tests/runsettings.xml' -r './tests/_coverage_results/wrapper_create'",
+      "type": "shell",
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false
+      },
+      "problemMatcher": "$msCompile",
+      "dependsOn": "clear-coverage"
+    },
+    {
+      "label": "get-coverage",
+      "type": "shell",
+      "group": "test",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": false
+      },
+      "problemMatcher": "$msCompile",
+      "dependsOn": ["clear-coverage", "unit-test", "integration-test"]
     }
   ]
 }
