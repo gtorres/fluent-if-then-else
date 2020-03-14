@@ -100,6 +100,21 @@
       },
       "problemMatcher": "$msCompile",
       "dependsOn": ["clear-coverage", "unit-test", "integration-test"]
+    },
+    {
+      "label": "pack",
+      "command": "dotnet pack './src' -c Release -o '${env:HOME}/source/packages_local/nuget'",
+      "type": "shell",
+      "group": "none",
+      "presentation": {
+        "echo": true,
+        "reveal": "always",
+        "focus": false,
+        "panel": "shared",
+        "showReuseMessage": false,
+        "clear": true
+      },
+      "problemMatcher": "$msCompile"
     }
   ]
 }
